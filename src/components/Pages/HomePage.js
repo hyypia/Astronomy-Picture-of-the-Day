@@ -13,8 +13,6 @@ const HomePage = ({ dispatch, dayImage, loading, hasError }) => {
     dispatch(fetchImage());
   }, [dispatch]);
 
-  console.log(dayImage);
-
   const renderDayImage = () => {
     if (loading) return <Spinner />;
     if (hasError) return <ErrorIndicator />;
@@ -25,9 +23,9 @@ const HomePage = ({ dispatch, dayImage, loading, hasError }) => {
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.dayImage.loading,
-  dayImage: state.dayImage.dayImage,
-  hasError: state.dayImage.hasError,
+  loading: state.loading,
+  dayImage: state.dayImage,
+  hasError: state.hasError,
 });
 
 export default compose(withApiService(), connect(mapStateToProps))(HomePage);
