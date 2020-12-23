@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import store from './store';
+import ErrorBoundary from './components/ErrorBoundry';
+import ApiService from './services/apiService';
+import { ApiServiceProvider } from './components/ApiServiceContext';
+import App from './components/App';
+
+const apiService = new ApiService();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ErrorBoundary>
+      <ApiServiceProvider value={apiService}>
+        <Router>
+          <App />
+        </Router>
+      </ApiServiceProvider>
+    </ErrorBoundary>
+  </Provider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
