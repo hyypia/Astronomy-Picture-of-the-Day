@@ -6,34 +6,41 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import StarsIcon from '@material-ui/icons/Stars';
 
 import useStyles from './styles';
 
 const DayImage = ({ dayImage }) => {
   const classes = useStyles();
-  console.log(dayImage);
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          className={classes.media}
           component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image={dayImage.url}
-          title="Contemplative Reptile"
+          alt={dayImage.dayImage.title}
+          image={dayImage.dayImage.url}
+          title={dayImage.dayImage.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {dayImage.title}
+            {dayImage.dayImage.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {dayImage.explanation}
+          <Typography
+            className={classes.paragraph}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+          >
+            {dayImage.dayImage.explanation}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          <StarsIcon />
+          Add
         </Button>
         <Button size="small" color="primary">
           Learn More

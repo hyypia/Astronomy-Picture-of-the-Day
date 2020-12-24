@@ -1,12 +1,14 @@
-import * as actions from '../actions/dayImageActions';
+import {
+  GET_IMAGE,
+  GET_IMAGE_SUCCESS,
+  GET_IMAGE_FAILURE,
+} from '../actions/dayImageActions';
 
 const initialState = {
   dayImage: [],
   loading: false,
   hasError: false,
 };
-
-const { GET_IMAGE, GET_IMAGE_SUCCESS, GET_IMAGE_FAILURE } = actions;
 
 const dayImageReducer = (state = initialState, action) => {
   switch (action.type) {

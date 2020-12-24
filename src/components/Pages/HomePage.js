@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import DayImage from '../DayImage';
-import withApiService from '../hoc';
-import compose from '../../utils';
 import { fetchImage } from '../../actions/dayImageActions';
+import DayImage from '../DayImage';
+import ItemCard from '../ItemCard';
 import Spinner from '../Spinner';
 import ErrorIndicator from '../ErrorIndicator';
 
@@ -19,7 +18,17 @@ const HomePage = ({ dispatch, dayImage, loading, hasError }) => {
     return <DayImage dayImage={dayImage} />;
   };
 
-  return <section>{renderDayImage()}</section>;
+  return (
+    <>
+      <section>{renderDayImage()}</section>
+      <section>
+        <ItemCard />
+        <ItemCard />
+        <ItemCard />
+        <ItemCard />
+      </section>
+    </>
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -28,4 +37,4 @@ const mapStateToProps = (state) => ({
   hasError: state.hasError,
 });
 
-export default compose(withApiService(), connect(mapStateToProps))(HomePage);
+export default connect(mapStateToProps)(HomePage);

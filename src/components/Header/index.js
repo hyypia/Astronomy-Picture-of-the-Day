@@ -5,6 +5,8 @@ import {
   IconButton,
   SvgIcon,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import StarsIcon from '@material-ui/icons/Stars';
 
@@ -14,6 +16,8 @@ import useStyles from './styles';
 
 const Header = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <section>
@@ -25,9 +29,11 @@ const Header = () => {
             </SvgIcon>
           </IconButton>
           <div className={classes.smContainer}>
-            <Typography variant="h1" className={classes.header}>
-              NASA Gallery
-            </Typography>
+            {isMatch ? null : (
+              <Typography variant="h1" className={classes.header}>
+                NASA Gallery
+              </Typography>
+            )}
             <div className={classes.search}>
               <SearchBar />
             </div>

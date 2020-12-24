@@ -7,6 +7,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 15,
     backgroundColor: '#b1d4e0',
   },
+  media: {
+    maxHeight: 400,
+  },
+  paragraph: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 }));
 
 export default useStyles;
