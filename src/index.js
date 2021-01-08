@@ -8,8 +8,6 @@ import store from './store';
 import ErrorBoundary from './components/ErrorBoundry';
 import App from './components/App';
 
-// const apiService = new ApiService();
-
 ReactDOM.render(
   <Provider store={store}>
     <ErrorBoundary>
