@@ -8,10 +8,8 @@ import {
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
-import StarsIcon from '@material-ui/icons/Stars';
 
 import { ReactComponent as Logo } from './NASA.svg';
-import SearchBar from '../SearchBar';
 import useStyles from './styles';
 
 const Header = () => {
@@ -31,16 +29,10 @@ const Header = () => {
           <div className={classes.smContainer}>
             {isMatch ? null : (
               <Typography variant="h1" className={classes.header}>
-                NASA Gallery
+                Astronomy Picture of the Day
               </Typography>
             )}
-            <div className={classes.search}>
-              <SearchBar />
-            </div>
           </div>
-          <IconButton className={classes.favoriteButton}>
-            <StarsIcon />
-          </IconButton>
         </Container>
       </AppBar>
     </section>
