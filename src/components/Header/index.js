@@ -8,6 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 import { ReactComponent as Logo } from './NASA.svg';
 import useStyles from './styles';
@@ -33,6 +34,12 @@ const Header = () => {
               </Typography>
             )}
           </div>
+          <IconButton
+            className={classes.favoriteButton}
+            href="https://github.com/hyypia/Astronomy-Picture-of-the-Day"
+          >
+            <GitHubIcon />
+          </IconButton>
         </Container>
       </AppBar>
     </section>
